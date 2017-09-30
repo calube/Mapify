@@ -1,0 +1,6 @@
+framework module Pods_mapify {
+  umbrella header "Pods-mapify-umbrella.h"
+
+  export *
+  module * { export * }
+}

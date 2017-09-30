@@ -1,0 +1,6 @@
+framework module Pods_mapifyTests {
+  umbrella header "Pods-mapifyTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
