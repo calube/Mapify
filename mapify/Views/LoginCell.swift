@@ -200,18 +200,23 @@ extension LoginCell {
 
     func addConstraints() {
         headerView.snp.makeConstraints { (make) in
-            make.right.left.top.equalTo(safeAreaLayoutGuide)
-            make.height.equalTo(snp.height).multipliedBy(0.2)
+            make.top.left.right.equalTo(safeAreaLayoutGuide)
+            make.height.equalTo(safeAreaLayoutGuide).multipliedBy(0.2)
+        }
+        logoLabel.snp.makeConstraints { (make) in
+            make.center.equalTo(headerView).offset(8)
+            make.height.equalTo(44)
         }
 
         bodyView.snp.makeConstraints { (make) in
-            make.top.equalTo(headerView.snp.top)
+            make.top.equalTo(headerView.snp.bottom)
             make.right.left.bottom.equalTo(safeAreaLayoutGuide)
         }
 
         emailTextField.snp.makeConstraints { (make) in
-            make.top.equalTo(bodyView.snp.top).offset(16)
-            make.left.right.equalTo(bodyView).offset(40)
+            make.top.equalTo(bodyView.snp.top).offset(32)
+            make.left.equalTo(safeAreaLayoutGuide).offset(40)
+            make.right.equalTo(safeAreaLayoutGuide).offset(-40)
             make.height.equalTo(44)
         }
 
@@ -226,5 +231,67 @@ extension LoginCell {
             make.trailing.leading.equalTo(emailTextField)
             make.height.equalTo(44)
         }
+
+        forgotLoginDetailsLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(loginButton.snp.bottom).offset(8)
+            make.left.equalTo(loginButton.snp.left).offset(4)
+            make.height.equalTo(16)
+        }
+
+        getHelpButton.snp.makeConstraints { (make) in
+            make.top.equalTo(forgotLoginDetailsLabel.snp.top)
+            make.left.equalTo(forgotLoginDetailsLabel.snp.right).offset(4)
+            make.height.equalTo(16)
+        }
+
+        orLabel.snp.makeConstraints { (make) in
+            let top = UIScreen.main.bounds.size.height / 10
+            make.width.height.equalTo(24)
+            make.top.equalTo(forgotLoginDetailsLabel.snp.bottom).offset(top)
+            make.centerX.equalTo(safeAreaLayoutGuide)
+        }
+
+        leftLineView.snp.makeConstraints { (make) in
+            make.left.equalTo(loginButton)
+            make.right.equalTo(orLabel.snp.left).offset(-8)
+            make.height.equalTo(1)
+            make.centerY.equalTo(orLabel)
+        }
+
+        rightLineView.snp.makeConstraints { (make) in
+            make.left.equalTo(orLabel.snp.right).offset(8)
+            make.right.equalTo(loginButton)
+            make.height.equalTo(1)
+            make.centerY.equalTo(orLabel)
+        }
+
+        connectButton.snp.makeConstraints { (make) in
+            make.top.equalTo(orLabel.snp.bottom).offset(32)
+            make.centerX.equalTo(safeAreaLayoutGuide)
+        }
+
+        facebookButton.snp.makeConstraints { (make) in
+            make.width.height.equalTo(20)
+            make.centerY.equalTo(connectButton)
+            make.right.equalTo(connectButton.snp.left).offset(-8)
+        }
+
+        dontHaveAccountLabel.snp.makeConstraints { (make) in
+            make.centerX.equalTo(safeAreaLayoutGuide).offset(-1 * screenWidth/12)
+            make.bottom.equalTo(safeAreaLayoutGuide).offset(-16)
+        }
+
+        signUpButton.snp.makeConstraints { (make) in
+            make.top.equalTo(dontHaveAccountLabel.snp.top)
+            make.left.equalTo(dontHaveAccountLabel.snp.right).offset(8)
+            make.bottom.equalTo(safeAreaLayoutGuide).offset(-16)
+        }
+
+        seperatorLineView.snp.makeConstraints { (make) in
+            make.width.equalTo(safeAreaLayoutGuide)
+            make.bottom.equalTo(dontHaveAccountLabel.snp.top)
+            make.height.equalTo(1)
+        }
+
     }
 }
