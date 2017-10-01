@@ -84,7 +84,7 @@ class OnboardingViewController: UIViewController {
         }
         
         pageControl.snp.makeConstraints { (make) in
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(40)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-24)
             make.left.right.equalTo(view.safeAreaLayoutGuide)
         }
 
@@ -145,7 +145,7 @@ class OnboardingViewController: UIViewController {
         }
         // second last page
         if pageControl.currentPage == pages.count - 1 {
-            moveButtonsAndControlConstraints(bottomValue: 40, topValue: -80)
+            moveButtonsAndControlConstraints(bottomValue: 80, topValue: -80)
         }
 
         let indexPath = IndexPath(item: pageControl.currentPage + 1, section: 0)
@@ -165,9 +165,9 @@ class OnboardingViewController: UIViewController {
 
         // we are on the last page
         if pageNumber == pages.count {
-            moveButtonsAndControlConstraints(bottomValue: 40, topValue: -80)
+            moveButtonsAndControlConstraints(bottomValue: 80, topValue: -80)
         } else {
-            moveButtonsAndControlConstraints(bottomValue: 0, topValue: 10)
+            moveButtonsAndControlConstraints(bottomValue: -24, topValue: 10)
         }
 
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
